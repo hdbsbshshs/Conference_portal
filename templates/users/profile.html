@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Профиль{% endblock %}
+{% block content %}
+<div class="card shadow">
+    <div class="card-header bg-info text-white"><h4>Профиль пользователя</h4></div>
+    <div class="card-body">
+        <p><strong>Логин:</strong> {{ user.username }}</p>
+        <p><strong>ФИО:</strong> {{ user.full_name }}</p>
+        <p><strong>Телефон:</strong> {{ user.phone }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+    </div>
+</div>
+{% endblock %}

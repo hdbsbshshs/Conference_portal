@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Мои заявки{% endblock %}
+{% block content %}
+<h2>Мои заявки на бронирование</h2>
+<a href="{% url 'bookings:booking_form' %}" class="btn btn-primary mb-3">Создать новую заявку</a>
+<div class="row">
+    {% for booking in bookings %}
+    <div class="col-md-6 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ booking.room_name }}</h5>
+                <p class="card-text">
+                    <strong>Дата:</strong> {{ booking.conference_date }}<br>
+                    <strong>Оплата:</strong> {{ booking.get_payment_method_display }}<br>
+                    <strong>Статус:</strong> <span class="badge bg-secondary">{{ booking.get_status_display }}</span>
+                </p>
+                {% if booking.status == 'completed' %}
+                    {% if booking.review %}
+                        <div class="alert alert-light"><strong>Ваш отзыв:</strong> {{ booking.review }}</div>
+                    {% else %}
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="review_id" value="{{ booking.id }}">
+                            <textarea name="review" class="form-control mb-2" placeholder="Оставьте отзыв..." required></textarea>
+                            <button type="submit" class="btn btn-sm btn-outline-success">Отправить отзыв</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>У вас пока нет заявок.</p>
+    {% endfor %}
+</div>
+{% endblock %}
