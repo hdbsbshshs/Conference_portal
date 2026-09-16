@@ -3,6 +3,12 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Вы вышли из аккаунта')
+    return redirect('users:login')
 
 def register_view(request):
     if request.method == 'POST':
@@ -11,7 +17,7 @@ def register_view(request):
             user = form.save()
             login(request, user)
             messages.success(request, 'Регистрация успешно завершена!')
-            return redirect('booking:boking_list')
+            return redirect('bookings:booking_list')
         else:
             for field, errors in form.errors.items():
                 for error in errors:
