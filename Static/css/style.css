@@ -1,0 +1,93 @@
+:root {
+    --color-primary: #007bff;
+    --color-dark-blue: #0d47a1;
+    --color-gray: #6c757d;
+    --color-bg: #f8f9fa;
+    --color-highlight: #ffffff;
+}
+
+body {
+    background-color: var(--color-bg);
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+}
+
+h1 {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+h2, h3 {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+}
+
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+
+.form-text, small, .text-muted {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Навбар — темно-синий */
+.navbar {
+    background-color: var(--color-dark-blue) !important;
+}
+
+/* Основной акцентный цвет — голубой */
+.btn-primary, .bg-primary {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-dark-blue) !important;
+    border-color: var(--color-dark-blue) !important;
+}
+
+/* Серый акцент */
+.badge.bg-secondary, .btn-secondary {
+    background-color: var(--color-gray) !important;
+}
+
+/* Карточки и таблицы — выделяющий белый цвет */
+.card, table {
+    background-color: var(--color-highlight);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.alert {
+    border-radius: 10px;
+}
+
+.btn {
+    border-radius: 5px;
+}
+
+table {
+    overflow: hidden;
+}
+
+.form-control, .form-select {
+    border-radius: 5px;
+}
+
+.badge {
+    padding: 5px 10px;
+}
+
+.mt-4 {
+    margin-top: 2rem !important;
+}

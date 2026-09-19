@@ -4,9 +4,9 @@ from django.conf import settings  # Важно: импортируем settings
 
 class Booking(models.Model):
     STATUS_CHOICES = [
-        ('pending', 'На рассмотрении'),
-        ('approved', 'Одобрено'),
-        ('rejected', 'Отклонено'),
+        ('new', 'Новая'),
+        ('scheduled', 'Мероприятие назначено'),
+        ('completed', 'Завершено'),
     ]
 
     PAYMENT_CHOICES = [
@@ -32,7 +32,7 @@ class Booking(models.Model):
     status = models.CharField(
         max_length=20, 
         choices=STATUS_CHOICES, 
-        default='pending', 
+        default='new', 
         verbose_name='Статус'
     )
     review = models.TextField(blank=True, null=True, verbose_name='Отзыв')
